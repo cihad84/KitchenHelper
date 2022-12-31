@@ -11,7 +11,6 @@ function App() {
       <Nav></Nav>
       <div className='main'>
         <Inventory></Inventory>
-        <div>Hello There</div>
         <Recipes></Recipes>
       </div>
 

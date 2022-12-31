@@ -1,0 +1,12 @@
+
+
+.Recipes {
+  border: solid black;
+  width: 75vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  padding-top: 5vh;
+}

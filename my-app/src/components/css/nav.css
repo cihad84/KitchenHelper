@@ -1,0 +1,14 @@
+
+.Nav {
+  top: 0vh;
+  border: solid black;
+  position: relative;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  column-gap: 15vw;
+  align-items: center;
+  padding-left: 10vw;
+
+}
+

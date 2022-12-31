@@ -1,0 +1,25 @@
+.Inventory {
+  position: relative;
+  left: 0vw;
+  bottom: 0vh;
+  border: solid black;
+  height: 90vh;
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.ingredient {
+  margin-top: 3vh;
+  padding: 2%;
+  width: 50%;
+  border: solid black;
+  border-radius: 10px;
+  display:flex;
+  justify-content: center;
+  background-color: rgb(97, 238, 97);
+}
+
+        
