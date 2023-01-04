@@ -18,13 +18,11 @@ function Inventory () {
   }
 
   let deleteItem = (event) => {
-    let temp = inventory;
-    temp.splice(event.target.parentElement.parentElement.dataset.key, 1)
-    console.log(temp);
-    setInventory([...temp]);
+    // inventory.splice(event.target.parentElement.parentElement.dataset.key, 1)
+    setInventory(inventory.filter(item => item.name !== event.target.dataset.name))
   }
   return (
-    <div className='Inventory'>
+    <div className='Inventory'>{console.log('hit')}
       <form onSubmit={handleSubmit}>
         <Button variant="contained"  >Contained</Button>
         <TextField id="outlined-basic" label="Add Stock" variant="outlined" />
@@ -32,10 +30,10 @@ function Inventory () {
 
       <FormGroup>
         {inventory.map((item, index) =>
-          <div key={index} data-key={index}>
+          <div key={index} >
             <FormControlLabel control={<Checkbox defaultChecked />} label={item.name} />
             <Fab size='small' color="primary" aria-label="add">
-              <RemoveIcon data-parent={item.name} onClick={deleteItem}/>
+              <RemoveIcon data-name={item.name} onClick={deleteItem}/>
             </Fab>
 
           </div>
