@@ -15,21 +15,27 @@ function Inventory () {
     setInventory([...inventory, {name:event.target[1].value}])
     event.target[1].value = "";
     event.preventDefault();
+  }
 
+  let deleteItem = (event) => {
+    let temp = inventory;
+    temp.splice(event.target.parentElement.parentElement.dataset.key, 1)
+    console.log(temp);
+    setInventory([...temp]);
   }
   return (
     <div className='Inventory'>
       <form onSubmit={handleSubmit}>
-        <Button variant="contained" >Contained</Button>
+        <Button variant="contained"  >Contained</Button>
         <TextField id="outlined-basic" label="Add Stock" variant="outlined" />
       </form>
 
       <FormGroup>
         {inventory.map((item, index) =>
-          <div>
-            <FormControlLabel key={index} control={<Checkbox defaultChecked />} label={item.name} />
+          <div key={index} data-key={index}>
+            <FormControlLabel control={<Checkbox defaultChecked />} label={item.name} />
             <Fab size='small' color="primary" aria-label="add">
-              <RemoveIcon />
+              <RemoveIcon data-parent={item.name} onClick={deleteItem}/>
             </Fab>
 
           </div>
