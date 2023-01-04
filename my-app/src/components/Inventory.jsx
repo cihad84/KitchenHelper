@@ -13,7 +13,9 @@ function Inventory () {
 
   let handleSubmit = (event) => {
     setInventory([...inventory, {name:event.target[1].value}])
+    event.target[1].value = "";
     event.preventDefault();
+
   }
   return (
     <div className='Inventory'>
