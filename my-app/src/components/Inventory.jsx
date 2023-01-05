@@ -9,7 +9,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import Fab from '@mui/material/Fab';
 
 function Inventory () {
-  const [inventory, setInventory] = useState([{name:'eggs'}, {name:'milk'} ])
+  const [inventory, setInventory] = useState([{name:'eggs', id:1}, {name:'milk', id:2} ])
 
   let handleSubmit = (event) => {
     setInventory([...inventory, {name:event.target[1].value}])
@@ -19,7 +19,9 @@ function Inventory () {
 
   let deleteItem = (event) => {
     // inventory.splice(event.target.parentElement.parentElement.dataset.key, 1)
-    setInventory(inventory.filter(item => item.name !== event.target.dataset.name))
+    setInventory(inventory.filter(item => item.name !== event.currentTarget.dataset.name))
+    console.log(event.currentTarget.dataset.name)
+
   }
   return (
     <div className='Inventory'>{console.log('hit')}
@@ -29,8 +31,8 @@ function Inventory () {
       </form>
 
       <FormGroup>
-        {inventory.map((item, index) =>
-          <div key={index} >
+        {inventory.map((item) =>
+          <div key={item.id} >
             <FormControlLabel control={<Checkbox defaultChecked />} label={item.name} />
             <Fab size='small' color="primary" aria-label="add">
               <RemoveIcon data-name={item.name} onClick={deleteItem}/>
